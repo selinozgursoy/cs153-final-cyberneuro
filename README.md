@@ -110,6 +110,38 @@ This work is grounded in the emerging BCI security literature:
 
 **Research contribution:** Unified agentic platform combining real-time signal defense, automated legal compliance auditing, and empirical de-anonymization risk scoring for BCIs.
 
+## Future Steps
+
+**Real hardware integration**  
+Connect directly to live BCI devices via their Bluetooth APIs, replacing the 
+simulated EEG stream with genuine real-time neural signal monitoring from a 
+physical headset worn by a user.
+
+**Real vendor auditing at scale**  
+Expand the compliance agent to autonomously crawl and audit the actual privacy 
+policies of 30+ real BCI companies on a scheduled basis, tracking policy changes 
+over time and publishing a public compliance scorecard updated monthly.
+
+**Adversarial training defense**  
+Train EEGNet with adversarial examples included in the training loop and measure 
+whether it closes the attack success rate gap — establishing a rigorous 
+attack/defense benchmark for the BCI security research community.
+
+**Clinical validation**  
+Partner with a hospital BCI program (e.g., Stanford Hospital) to validate 
+the platform against real clinical EEG data and patient-facing BCI devices, 
+moving from research prototype toward clinical deployment readiness.
+
+**FDA compliance framework**  
+Map CyberNeuro's security assessment outputs to FDA guidance on cybersecurity 
+in medical devices, positioning the platform as a pre-market security testing 
+tool for BCI manufacturers seeking FDA clearance.
+
+**Multi-modal neural signal support**  
+Extend beyond EEG to cover other neural recording modalities used in 
+next-generation BCIs — ECoG, local field potentials, and spike sorting from 
+implanted arrays like Neuralink — as invasive BCIs become more widespread.
+
 ---
 
 *Built at Stanford with MNE-Python, PyTorch, and the Anthropic/OpenRouter Claude API.*
