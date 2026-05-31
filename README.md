@@ -1,7 +1,7 @@
 # CyberNeuro 🧠🔐
 
 > **Agentic security and privacy platform for Brain-Computer Interfaces**  
-> Built by Selin Ozgursoy for CS153 — Computer and Network Security, Spring 2026  
+> Built by Selin Ozgursoy for CS153 Frontier Systems, Spring 2026  
 
 
 ---
