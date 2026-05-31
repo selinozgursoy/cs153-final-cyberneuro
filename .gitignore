@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+mne_data/
+models/eegnet_trained.pt
+.DS_Store
+results/*.png

@@ -1,0 +1,46 @@
+{
+  "dataset": "CyberNeuro EEG (5 subjects)",
+  "n_subjects": 5,
+  "n_epochs": 300,
+  "overall_risk_score": 44.0,
+  "overall_risk_level": "MEDIUM",
+  "summary": "This EEG dataset carries a MEDIUM de-anonymization risk (score 44/100). The highest-risk inference task is 'Cognitive State' with AUC=1.000.",
+  "tasks": [
+    {
+      "name": "Cognitive State",
+      "accuracy": 1.0,
+      "chance": 0.5,
+      "lift": 2.0,
+      "auc_roc": 1.0,
+      "risk": "HIGH",
+      "implication": "Mental intentions are readable \u2014 even 'monitoring' apps reveal what you're thinking."
+    },
+    {
+      "name": "Subject Re-Identification",
+      "accuracy": 0.18,
+      "chance": 0.2,
+      "lift": 0.9,
+      "auc_roc": 0.18,
+      "risk": "LOW",
+      "implication": "Anonymized EEG can be matched back to specific individuals \u2014 brainprints are unique."
+    },
+    {
+      "name": "Medical Marker",
+      "accuracy": 0.8433,
+      "chance": 0.5,
+      "lift": 1.69,
+      "auc_roc": 0.9164,
+      "risk": "MEDIUM",
+      "implication": "EEG from any app may reveal epilepsy, ADHD, or other conditions users never disclosed."
+    },
+    {
+      "name": "Attention/Cognitive Load",
+      "accuracy": 0.94,
+      "chance": 0.5,
+      "lift": 1.88,
+      "auc_roc": 0.9909,
+      "risk": "HIGH",
+      "implication": "Advertisers and employers would pay for continuous attention monitoring from your EEG."
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "platform": "CyberNeuro",
+  "dataset": {
+    "n_subjects": 5,
+    "n_epochs": 300,
+    "n_channels": 64,
+    "sfreq": 160.0
+  },
+  "module_1_classifier": {
+    "architecture": "EEGNet",
+    "parameters": 2570,
+    "accuracy": 0.4917,
+    "roc_auc": 0.4914
+  },
+  "module_2_adversarial": {
+    "attacks": {
+      "FGSM": {
+        "epsilon": 0.05,
+        "attack_success_rate": 0.6053,
+        "adversarial_accuracy": 0.1875,
+        "snr_db": 26.02
+      },
+      "PGD": {
+        "epsilon": 0.05,
+        "attack_success_rate": 0.4737,
+        "adversarial_accuracy": 0.25,
+        "snr_db": 27.08
+      }
+    },
+    "detectors": {
+      "Statistical": {
+        "auc_roc": 0.9023,
+        "recall": 0.8437,
+        "fpr": 0.0,
+        "f1": 0.9153
+      },
+      "Isolation Forest": {
+        "auc_roc": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "f1": 1.0
+      },
+      "Confidence": {
+        "auc_roc": 0.3838,
+        "recall": 1.0,
+        "fpr": 1.0,
+        "f1": 0.6667
+      }
+    },
+    "robustness_curve": {
+      "epsilons": [
+        0.01,
+        0.05,
+        0.1
+      ],
+      "fgsm_accuracy": [
+        0.425,
+        0.1875,
+        0.0
+      ],
+      "pgd_accuracy": [
+        0.425,
+        0.1875,
+        0.0
+      ]
+    }
+  },
+  "module_3_compliance": {},
+  "module_4_deanonymization": {
+    "overall_risk_score": 44.0,
+    "overall_risk_level": "MEDIUM",
+    "tasks": {
+      "Cognitive State": {
+        "accuracy": 1.0,
+        "lift": 2.0,
+        "auc": 1.0,
+        "risk": "HIGH"
+      },
+      "Subject Re-Identification": {
+        "accuracy": 0.18,
+        "lift": 0.9,
+        "auc": 0.18,
+        "risk": "LOW"
+      },
+      "Medical Marker": {
+        "accuracy": 0.8433,
+        "lift": 1.69,
+        "auc": 0.9164,
+        "risk": "MEDIUM"
+      },
+      "Attention/Cognitive Load": {
+        "accuracy": 0.94,
+        "lift": 1.88,
+        "auc": 0.9909,
+        "risk": "HIGH"
+      }
+    }
+  },
+  "module_5_streaming": {}
+}
