@@ -1,0 +1,99 @@
+{
+  "vendor": "NeuroSafe (Strong Compliance Demo)",
+  "score": 82.5,
+  "risk_level": "LOW",
+  "n_critical": 1,
+  "n_compliant": 7,
+  "requirements": [
+    {
+      "id": "CO-01",
+      "law": "Colorado HB 24-1058",
+      "requirement": "Explicit opt-in consent before collecting neural data",
+      "severity": "CRITICAL",
+      "verdict": "COMPLIANT",
+      "evidence": "We collect neural data ONLY with your explicit opt-in consent, obtained separately before any recording begins.",
+      "recommendation": "No changes needed. The policy clearly requires explicit opt-in consent prior to any neural data collection, which satisfies CO-01 requirements."
+    },
+    {
+      "id": "CO-02",
+      "law": "Colorado HB 24-1058",
+      "requirement": "Neural data classified as sensitive biological data",
+      "severity": "HIGH",
+      "verdict": "COMPLIANT",
+      "evidence": "Neural signals are classified as sensitive biological data with the highest tier of protection.",
+      "recommendation": "No changes needed. The policy explicitly classifies neural data as sensitive biological data and demonstrates heightened protections through multiple safeguards including explicit opt-in consent, encryption standards, deletion rights, retention limits, third-party protections, and breach notification procedures."
+    },
+    {
+      "id": "CA-01",
+      "law": "California SB 1223",
+      "requirement": "Right to delete neural data",
+      "severity": "HIGH",
+      "verdict": "COMPLIANT",
+      "evidence": "You may request complete deletion of your neural data at any time, processed within 30 days.",
+      "recommendation": "Policy is compliant. To enhance clarity, consider adding: (1) explicit confirmation that deletion includes all copies and backups, (2) specific procedure for submitting deletion requests (e.g., email address, web form), and (3) confirmation method users will receive once deletion is complete."
+    },
+    {
+      "id": "CA-02",
+      "law": "California SB 1223",
+      "requirement": "No sale of neural data without explicit consent",
+      "severity": "CRITICAL",
+      "verdict": "COMPLIANT",
+      "evidence": "We never sell your neural data under any circumstances.",
+      "recommendation": "Policy is compliant. To strengthen further, consider adding explicit language that neural data will not be sold even with consent, or clarify the conditions under which consent for sale could theoretically be obtained (if applicable), to ensure complete transparency about the 'never sell' commitment."
+    },
+    {
+      "id": "MN-01",
+      "law": "Minnesota HF 1",
+      "requirement": "Data minimization for neural signals",
+      "severity": "MEDIUM",
+      "verdict": "NOT_MENTIONED",
+      "evidence": "The policy discusses consent, encryption, retention periods, and deletion rights, but does not explicitly commit to collecting only the minimum neural data necessary for specified purposes.",
+      "recommendation": "Add an explicit data minimization statement such as: 'We collect only the minimum neural signal data necessary to provide the requested functionality and services, limiting both the type and volume of neural data collected to what is strictly required.'"
+    },
+    {
+      "id": "EU-01",
+      "law": "EU AI Act Article 5",
+      "requirement": "No subliminal manipulation via neural interface",
+      "severity": "CRITICAL",
+      "verdict": "NOT_MENTIONED",
+      "evidence": "The policy addresses data collection, consent, encryption, retention, and breach notification, but contains no language addressing subliminal manipulation, influence techniques, or restrictions on how the BCI system may affect user cognition or behavior.",
+      "recommendation": "Add an explicit prohibition statement such as: 'We prohibit the use of our BCI system to influence, manipulate, or alter user behavior through subliminal techniques, unconscious stimulation, or any method that bypasses conscious awareness. Our system will not deploy neural stimulation patterns designed to affect decision-making without explicit user knowledge and consent.'"
+    },
+    {
+      "id": "EU-02",
+      "law": "EU AI Act / GDPR",
+      "requirement": "Encryption of neural data in transit and at rest",
+      "severity": "HIGH",
+      "verdict": "COMPLIANT",
+      "evidence": "All neural data is encrypted using AES-256 at rest and TLS 1.3 in transit.",
+      "recommendation": "No changes needed. The policy clearly states that neural data is encrypted both at rest (using AES-256) and in transit (using TLS 1.3), meeting the requirement for encryption of neural data in transmission and storage."
+    },
+    {
+      "id": "GEN-01",
+      "law": "Neurorights Foundation Standards",
+      "requirement": "Meaningful third-party data sharing limitations",
+      "severity": "HIGH",
+      "verdict": "UNCLEAR",
+      "evidence": "Third parties accessing derived data must agree to equivalent protections.",
+      "recommendation": "The policy should explicitly specify: (1) which categories of third parties are permitted to access neural data or derived data, (2) the specific purposes for which third-party access is allowed, (3) whether users can opt-out of third-party sharing, and (4) clarify whether 'derived data' from neural signals is shared more broadly than raw neural data. The current statement only addresses security requirements for third parties but does not meaningfully limit which third parties can access the data or under what circumstances."
+    },
+    {
+      "id": "GEN-02",
+      "law": "Neurorights Foundation Standards",
+      "requirement": "Breach notification for neural data",
+      "severity": "HIGH",
+      "verdict": "COMPLIANT",
+      "evidence": "In the event of a breach affecting your neural data, we will notify you within 72 hours.",
+      "recommendation": "The policy meets the requirement by committing to a specific 72-hour notification timeframe for neural data breaches. To further strengthen this commitment, consider specifying the notification method (email, app notification, etc.) and what information will be included in the breach notification."
+    },
+    {
+      "id": "GEN-03",
+      "law": "Neurorights Foundation Standards",
+      "requirement": "No indefinite retention of raw neural signals",
+      "severity": "MEDIUM",
+      "verdict": "COMPLIANT",
+      "evidence": "We retain raw neural signals for a maximum of 90 days.",
+      "recommendation": "No changes needed. The policy clearly specifies a defined maximum retention period of 90 days for raw neural signals, which satisfies the requirement against indefinite retention."
+    }
+  ]
+}

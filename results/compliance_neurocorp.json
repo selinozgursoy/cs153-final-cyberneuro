@@ -1,0 +1,99 @@
+{
+  "vendor": "NeuroCorp (Poor Compliance Demo)",
+  "score": 0.0,
+  "risk_level": "CRITICAL",
+  "n_critical": 3,
+  "n_compliant": 0,
+  "requirements": [
+    {
+      "id": "CO-01",
+      "law": "Colorado HB 24-1058",
+      "requirement": "Explicit opt-in consent before collecting neural data",
+      "severity": "CRITICAL",
+      "verdict": "VIOLATION",
+      "evidence": "By using our EEG headset, you agree to our collection of brain activity data.",
+      "recommendation": "Replace the implicit consent-by-use mechanism with an explicit opt-in consent requirement. The policy should state that users must provide affirmative, prior consent (such as clicking 'I agree' or checking a consent box) before any neural data collection begins. The default state must be no collection until explicit consent is given, not automatic collection upon device use."
+    },
+    {
+      "id": "CO-02",
+      "law": "Colorado HB 24-1058",
+      "requirement": "Neural data classified as sensitive biological data",
+      "severity": "HIGH",
+      "verdict": "VIOLATION",
+      "evidence": "The policy treats neural data as standard data subject only to 'reasonable security measures' and permits sharing with advertising partners, selling to third parties, and international transfers without indicating any heightened protections. The statement 'may share this data with our advertising partners' and 'reserve the right to sell anonymized neural datasets to third parties' demonstrates neural data is not classified as sensitive biological data requiring special safeguards.",
+      "recommendation": "Explicitly classify neural/brain data as sensitive biological data in the policy. Implement and document heightened protections including: enhanced security measures beyond 'reasonable', stricter limitations on sharing and selling neural data, explicit consent requirements separate from general terms, data minimization principles, and clear restrictions on use by advertising partners. Add specific provisions acknowledging the sensitive nature of neural data under Colorado HB 24-1058."
+    },
+    {
+      "id": "CA-01",
+      "law": "California SB 1223",
+      "requirement": "Right to delete neural data",
+      "severity": "HIGH",
+      "verdict": "VIOLATION",
+      "evidence": "The policy states 'Data is retained for as long as necessary to fulfill our business purposes' and allows selling 'anonymized neural datasets to third parties' but provides no mechanism for users to request deletion of their neural data. The only user right mentioned is to 'opt out of marketing communications,' which does not address deletion of neural data.",
+      "recommendation": "Add an explicit provision granting users the right to request deletion of their neural data, specify the process for submitting deletion requests, define timeframes for processing such requests, and clarify how deletion applies to data already shared with third parties or sold as anonymized datasets."
+    },
+    {
+      "id": "CA-02",
+      "law": "California SB 1223",
+      "requirement": "No sale of neural data without explicit consent",
+      "severity": "CRITICAL",
+      "verdict": "VIOLATION",
+      "evidence": "We reserve the right to sell anonymized neural datasets to third parties for research purposes.",
+      "recommendation": "Remove the reservation to sell neural data, or implement a separate explicit consent mechanism specifically for the sale of neural data that is distinct from the general terms of use agreement. The policy should clearly state that neural data will not be sold without obtaining explicit, affirmative consent from users through a separate opt-in process that specifically addresses the sale of neural data."
+    },
+    {
+      "id": "MN-01",
+      "law": "Minnesota HF 1",
+      "requirement": "Data minimization for neural signals",
+      "severity": "MEDIUM",
+      "verdict": "VIOLATION",
+      "evidence": "We collect neural signals to improve our products and may share this data with our advertising partners and research affiliates... Data is retained for as long as necessary to fulfill our business purposes... We reserve the right to sell anonymized neural datasets to third parties for research purposes.",
+      "recommendation": "The policy must explicitly commit to collecting only the minimum neural data necessary for the specific purpose stated to the user. Remove broad purposes like 'business purposes' and 'product improvement.' Specify exactly what neural signals are collected, why each is necessary, and limit collection to only those signals required for the core device functionality. Remove authorization to share/sell neural data to advertising partners and third parties, as this exceeds minimum necessary collection."
+    },
+    {
+      "id": "EU-01",
+      "law": "EU AI Act Article 5",
+      "requirement": "No subliminal manipulation via neural interface",
+      "severity": "CRITICAL",
+      "verdict": "NOT_MENTIONED",
+      "evidence": "The policy discusses data collection, sharing with advertising partners, marketing opt-out, retention, security, international transfers, and sale of anonymized datasets, but contains no language addressing subliminal manipulation or prohibitions on using the BCI to influence users through subliminal techniques.",
+      "recommendation": "Add an explicit prohibition statement such as: 'We will not use neural interface technology to influence, manipulate, or modify user behavior through subliminal techniques that circumvent conscious awareness. All interactions with users through the BCI will be transparent and within the user's conscious control.'"
+    },
+    {
+      "id": "EU-02",
+      "law": "EU AI Act / GDPR",
+      "requirement": "Encryption of neural data in transit and at rest",
+      "severity": "HIGH",
+      "verdict": "NOT_MENTIONED",
+      "evidence": "The policy only states 'We implement reasonable security measures' without specifying encryption of neural data in transit or at rest",
+      "recommendation": "Add explicit statement that neural data is encrypted using industry-standard encryption protocols (e.g., AES-256) both during transmission (in transit) and when stored in databases or servers (at rest). Specify the encryption standards and protocols used."
+    },
+    {
+      "id": "GEN-01",
+      "law": "Neurorights Foundation Standards",
+      "requirement": "Meaningful third-party data sharing limitations",
+      "severity": "HIGH",
+      "verdict": "VIOLATION",
+      "evidence": "We may share this data with our advertising partners and research affiliates... We reserve the right to sell anonymized neural datasets to third parties for research purposes.",
+      "recommendation": "Implement specific limitations on third-party data sharing by: (1) defining exhaustive categories of permitted third parties rather than broad categories like 'advertising partners', (2) requiring explicit user consent before any neural data sharing, (3) prohibiting sale of neural data even if anonymized, (4) establishing strict data use agreements that limit third-party purposes, and (5) providing users with granular control over which specific third parties can access their neural data."
+    },
+    {
+      "id": "GEN-02",
+      "law": "Neurorights Foundation Standards",
+      "requirement": "Breach notification for neural data",
+      "severity": "HIGH",
+      "verdict": "NOT_MENTIONED",
+      "evidence": "The policy states 'We implement reasonable security measures' but contains no information about breach notification procedures, timeframes, or commitments to notify users if neural data is compromised.",
+      "recommendation": "Add a specific breach notification clause that commits to notifying users within a defined timeframe (e.g., 72 hours) if neural data is compromised, including details about notification methods and what information will be provided to affected users."
+    },
+    {
+      "id": "GEN-03",
+      "law": "Neurorights Foundation Standards",
+      "requirement": "No indefinite retention of raw neural signals",
+      "severity": "MEDIUM",
+      "verdict": "VIOLATION",
+      "evidence": "Data is retained for as long as necessary to fulfill our business purposes.",
+      "recommendation": "Specify a definite maximum retention period for raw neural signals (e.g., '90 days after collection' or '1 year from account closure'), separate from other data types. Replace the vague 'as long as necessary to fulfill our business purposes' language with concrete timeframes that comply with data minimization principles for sensitive neural data."
+    }
+  ]
+}
