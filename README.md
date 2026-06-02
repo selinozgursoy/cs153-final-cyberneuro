@@ -53,7 +53,9 @@ python cyberneuro.py --quick
 ```
 
 ---
+**Live Demo: [cyberneuro.vercel.app](https://cyberneuro.vercel.app)**
 
+---
 ## Real EEG Data (PhysioNet)
 
 The platform uses the PhysioNet EEG Motor Movement/Imagery Dataset — 109 subjects, 64 channels, 160Hz, free.
