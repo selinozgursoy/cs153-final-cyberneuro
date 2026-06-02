@@ -1,26 +1,22 @@
 # CyberNeuro 🧠🔐
 
 > **Agentic security and privacy platform for Brain-Computer Interfaces**  
-> Stanford CS153 — Computer and Network Security, Spring 2026  
-> Built by Selin Ozgursoy
+> Built by Selin Ozgursoy for CS153 Frontier Systems, Spring 2026  
 
-[![Python 3.12](https://img.shields.io/badge/python-3.12-blue)](https://python.org)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-red)](https://pytorch.org)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ---
 
 ## What is CyberNeuro?
 
-Brain-computer interfaces are becoming mainstream — Neuralink, Emotiv, Muse, OpenBCI — and they stream your raw brain signals with almost no security. A 2024 Neurorights Foundation report found **29 of 30** consumer BCI companies provide no meaningful limitations on neural data access.
+Brain-computer interfaces are becoming mainstream (Neuralink, Emotiv, Muse, OpenBCI, etc.) and they stream your raw brain signals with almost no security. A 2024 Neurorights Foundation report found **29 of 30** consumer BCI companies provide no meaningful limitations on neural data access.
 
-CyberNeuro is the first open-source agentic security platform built specifically for BCI neural data. It operates across three threat vectors simultaneously:
+CyberNeuro is an open-source agentic security platform for BCIs, providing real-time adversarial signal detection, automated neurorights compliance auditing, and empirical de-anonymization risk scoring. It operates across three threat vectors simultaneously:
 
-**Signal security** — adversarial attacks can make a BCI misread your intentions (turning a wheelchair the wrong way). CyberNeuro detects these attacks in real time.
+**Signal security**: adversarial attacks can make a BCI misread your intentions (turning a wheelchair the wrong way). CyberNeuro detects these attacks in real time.
 
-**Data privacy** — "anonymized" brain data still reveals your identity, medical conditions, and mental state. CyberNeuro measures exactly how much.
+**Data privacy**: "anonymized" brain data still reveals your identity, medical conditions, and mental state. CyberNeuro measures exactly how much.
 
-**Legal compliance** — 4 US states now have neural data laws. CyberNeuro autonomously audits BCI vendor privacy policies and flags violations.
+**Legal compliance**: 4 US states now have neural data laws. CyberNeuro autonomously audits BCI vendor privacy policies and flags violations.
 
 ---
 
@@ -75,28 +71,6 @@ python cyberneuro.py --subjects 10 --stream --compliance
 
 ---
 
-## Project Structure
-
-```
-cyberneuro/
-├── cyberneuro.py              ← Main entry point (run this)
-├── core/
-│   ├── synthetic_eeg.py       ← Physiologically realistic EEG generator
-│   ├── streaming_agent.py     ← Agentic real-time defense (Module 5)
-│   ├── compliance_agent.py    ← Neurorights compliance auditor (Module 3)
-│   └── deanon_scorer.py       ← De-anonymization risk scorer (Module 4)
-├── models/
-│   └── eegnet.py              ← EEGNet classifier (Module 1)
-├── attacks/
-│   └── adversarial.py         ← FGSM + PGD attacks (Module 2)
-├── evaluation/
-│   ├── anomaly_detector.py    ← 3 detection methods (Module 2)
-│   └── visualize.py           ← Plots and figures
-└── results/                   ← Auto-generated outputs
-```
-
----
-
 ## Results
 
 ### Adversarial Attacks (Module 2)
@@ -134,7 +108,39 @@ This work is grounded in the emerging BCI security literature:
 - **Neurorights Foundation 2024** — Consumer BCI Privacy Report
 - **US Senate 2025** — FTC urged to protect neural data (April 2025)
 
-**Research contribution:** First unified agentic platform combining real-time signal defense, automated legal compliance auditing, and empirical de-anonymization risk scoring for BCIs.
+**Research contribution:** Unified agentic platform combining real-time signal defense, automated legal compliance auditing, and empirical de-anonymization risk scoring for BCIs.
+
+## Future Steps
+
+**Real hardware integration**  
+Connect directly to live BCI devices via their Bluetooth APIs, replacing the 
+simulated EEG stream with genuine real-time neural signal monitoring from a 
+physical headset worn by a user.
+
+**Real vendor auditing at scale**  
+Expand the compliance agent to autonomously crawl and audit the actual privacy 
+policies of 30+ real BCI companies on a scheduled basis, tracking policy changes 
+over time and publishing a public compliance scorecard updated monthly.
+
+**Adversarial training defense**  
+Train EEGNet with adversarial examples included in the training loop and measure 
+whether it closes the attack success rate gap — establishing a rigorous 
+attack/defense benchmark for the BCI security research community.
+
+**Clinical validation**  
+Partner with a hospital BCI program (e.g., Stanford Hospital) to validate 
+the platform against real clinical EEG data and patient-facing BCI devices, 
+moving from research prototype toward clinical deployment readiness.
+
+**FDA compliance framework**  
+Map CyberNeuro's security assessment outputs to FDA guidance on cybersecurity 
+in medical devices, positioning the platform as a pre-market security testing 
+tool for BCI manufacturers seeking FDA clearance.
+
+**Multi-modal neural signal support**  
+Extend beyond EEG to cover other neural recording modalities used in 
+next-generation BCIs — ECoG, local field potentials, and spike sorting from 
+implanted arrays like Neuralink — as invasive BCIs become more widespread.
 
 ---
 
