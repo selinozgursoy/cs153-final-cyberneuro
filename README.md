@@ -8,7 +8,7 @@
 
 ## What is CyberNeuro?
 
-Brain-computer interfaces are becoming mainstream (Neuralink, Emotiv, Muse, OpenBCI, etc.) and they stream your raw brain signals with almost no security. A 2024 Neurorights Foundation report found **29 of 30** consumer BCI companies provide no meaningful limitations on neural data access.
+As brain-computer interfaces become mainstream, they introduce an entirely new cybersecurity frontier: neural systems. Unlike traditional personal data, neural signals can reveal cognitive states, intentions, and behavioral patterns, yet most BCI ecosystems lack dedicated security controls. CyberNeuro provides autonomous security monitoring, threat detection, and privacy enforcement for neural data, helping ensure that the next generation of human-computer interaction is secure by design.A 2024 Neurorights Foundation report found **29 of 30** consumer BCI companies provide no meaningful limitations on neural data access.
 
 CyberNeuro is an open-source agentic security platform for BCIs, providing real-time adversarial signal detection, automated neurorights compliance auditing, and empirical de-anonymization risk scoring. It operates across three threat vectors simultaneously:
 
@@ -53,7 +53,9 @@ python cyberneuro.py --quick
 ```
 
 ---
+**Live Demo: [cyberneuro.vercel.app](https://cyberneuro.vercel.app)**
 
+---
 ## Real EEG Data (PhysioNet)
 
 The platform uses the PhysioNet EEG Motor Movement/Imagery Dataset — 109 subjects, 64 channels, 160Hz, free.
