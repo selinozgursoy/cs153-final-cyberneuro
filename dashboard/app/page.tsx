@@ -378,7 +378,7 @@ export default function CyberNeuroDashboard() {
                     <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
                     <XAxis dataKey="eps" tick={{ fill: "#475569", fontSize: 10 }} label={{ value: "Perturbation ε (L∞)", fill: "#475569", fontSize: 10, position: "insideBottom", offset: -4 }} />
                     <YAxis tick={{ fill: "#475569", fontSize: 10 }} domain={[0, 100]} tickFormatter={(v: number) => `${v}%`} />
-                    <Tooltip contentStyle={{ background: "#0f172a", border: "1px solid #1e293b", borderRadius: 8, fontSize: 11 }} formatter={(v: number, n: string) => [`${v}%`, n.toUpperCase()]} />
+                    <Tooltip contentStyle={{ background: "#0f172a", border: "1px solid #1e293b", borderRadius: 8, fontSize: 11 }} formatter={(v: unknown, n: unknown) => [`${v}%`, String(n).toUpperCase()]} />
                     <Line type="monotone" dataKey="fgsm" stroke="#ef4444" strokeWidth={2.5} dot={{ r: 3, fill: "#ef4444" }} name="FGSM" />
                     <Line type="monotone" dataKey="pgd"  stroke="#f97316" strokeWidth={2.5} dot={{ r: 3, fill: "#f97316" }} strokeDasharray="6 3" name="PGD" />
                   </LineChart>
@@ -416,67 +416,139 @@ export default function CyberNeuroDashboard() {
         {/* ══ COMPLIANCE ══ */}
         {tab === "compliance" && (
           <div className="space-y-5">
-            <div className="grid grid-cols-4 gap-4">
-              {[{ v: "5", l: "Vendors Audited", c: "cyan" }, { v: "10", l: "Critical Violations", c: "red" }, { v: "5", l: "Legal Frameworks", c: "violet" }, { v: "10", l: "Requirements", c: "amber" }].map(m => (
-                <div key={m.l} className={`rounded-xl border border-${m.c}-500/20 bg-${m.c}-500/5 p-5`}>
-                  <div className={`text-4xl font-black font-mono text-${m.c}-400 mb-1`}>{m.v}</div>
-                  <div className="text-xs font-black text-slate-300 uppercase tracking-wider">{m.l}</div>
-                </div>
-              ))}
+
+            {/* Security framing header */}
+            <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-5">
+              <div className="text-[10px] font-black text-red-400/60 uppercase tracking-widest mb-2">Security Finding — Neural Data Exposure</div>
+              <div className="text-base text-slate-200 leading-relaxed max-w-4xl">
+                CyberNeuro's compliance agent autonomously audited BCI vendor privacy policies using Claude AI.
+                The finding: most vendors treat neural data like ordinary app data — no meaningful access controls,
+                no encryption guarantees, and unrestricted third-party sharing. This is a security vulnerability,
+                not just a legal one. An attacker doesn't need to hack your device if the vendor is already
+                handing your brain data to third parties.
+              </div>
             </div>
-            <div className="rounded-xl border border-slate-800/60 bg-slate-900/60 p-5">
-              <div className="text-xs font-black text-slate-300 uppercase tracking-wider mb-5">BCI Vendor Compliance Assessment</div>
-              <div className="space-y-4">
-                {VENDORS.map(v => (
-                  <div key={v.name} className="grid grid-cols-12 gap-4 items-center">
-                    <div className="col-span-2 flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-[10px] font-black">{v.name.slice(0,2).toUpperCase()}</div>
-                      <span className="text-sm font-black text-white">{v.name}</span>
-                    </div>
-                    <div className="col-span-6">
-                      <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
-                        <div className={`h-full rounded-full ${v.score >= 70 ? "bg-gradient-to-r from-emerald-700 to-emerald-400" : v.score >= 50 ? "bg-gradient-to-r from-amber-700 to-amber-400" : "bg-gradient-to-r from-red-800 to-red-500"}`}
-                          style={{ width: `${v.score}%` }} />
+
+            {/* Real audit results — dramatic contrast */}
+            <div className="grid grid-cols-2 gap-5">
+
+              {/* NeuroCorp — CRITICAL */}
+              <div className="rounded-xl border border-red-500/30 bg-red-500/5 p-5">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <div className="text-lg font-black text-red-400">NeuroCorp</div>
+                    <div className="text-[10px] text-slate-500 uppercase tracking-wider">Typical consumer BCI vendor</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-4xl font-black font-mono text-red-400">0</div>
+                    <div className="text-[10px] text-slate-500">/ 100</div>
+                  </div>
+                </div>
+                <div className="h-2 bg-slate-800 rounded-full mb-4">
+                  <div className="h-full w-0 rounded-full bg-red-500" />
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded border border-red-400/30 bg-red-400/10 text-[10px] font-bold text-red-400 mb-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />CRITICAL RISK
+                </div>
+                <div className="space-y-3">
+                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-wider mb-2">Security Vulnerabilities Found</div>
+                  {[
+                    { id: "CO-01", sev: "CRITICAL", vuln: "No opt-in consent before neural data collection", evidence: "By using our EEG headset, you agree to our collection of brain activity data." },
+                    { id: "CA-02", sev: "CRITICAL", vuln: "Neural data sold to advertising partners", evidence: "We reserve the right to sell anonymized neural datasets to third parties." },
+                    { id: "EU-01", sev: "CRITICAL", vuln: "No prohibition on subliminal neural manipulation", evidence: "No mention of restrictions on how neural data is used to influence users." },
+                    { id: "GEN-02", sev: "HIGH",     vuln: "No breach notification commitment", evidence: "Contains no information about breach notification procedures or timeframes." },
+                    { id: "GEN-03", sev: "MEDIUM",   vuln: "Indefinite retention of raw brain signals", evidence: "Data is retained for as long as necessary to fulfill our business purposes." },
+                  ].map(v => (
+                    <div key={v.id} className="border border-red-500/15 rounded-lg bg-red-500/5 p-3">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="text-[9px] font-mono text-red-400/60 font-black">{v.id}</span>
+                        <span className={`text-[9px] font-black px-1.5 py-0.5 rounded ${v.sev === "CRITICAL" ? "bg-red-500/20 text-red-400" : v.sev === "HIGH" ? "bg-orange-500/20 text-orange-400" : "bg-amber-500/20 text-amber-400"}`}>{v.sev}</span>
+                        <span className="text-[10px] font-bold text-slate-300">{v.vuln}</span>
                       </div>
+                      <div className="text-[10px] text-slate-500 italic">Evidence: "{v.evidence}"</div>
                     </div>
-                    <div className="col-span-1 font-mono font-black text-white text-right">{v.score}</div>
-                    <div className="col-span-1"><RiskBadge risk={v.risk} /></div>
-                    <div className="col-span-2 text-[10px] text-slate-500">{v.critical} critical · {v.compliant}/10 ok</div>
+                  ))}
+                </div>
+              </div>
+
+              {/* NeuroSafe — LOW */}
+              <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-5">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <div className="text-lg font-black text-emerald-400">NeuroSafe</div>
+                    <div className="text-[10px] text-slate-500 uppercase tracking-wider">Security-conscious vendor</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-4xl font-black font-mono text-emerald-400">82.5</div>
+                    <div className="text-[10px] text-slate-500">/ 100</div>
+                  </div>
+                </div>
+                <div className="h-2 bg-slate-800 rounded-full mb-4">
+                  <div className="h-full rounded-full bg-gradient-to-r from-emerald-700 to-emerald-400" style={{ width: "82.5%" }} />
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded border border-emerald-400/30 bg-emerald-400/10 text-[10px] font-bold text-emerald-400 mb-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />LOW RISK
+                </div>
+                <div className="space-y-3">
+                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-wider mb-2">Security Controls Verified</div>
+                  {[
+                    { id: "CO-01", ctrl: "Explicit opt-in consent required", evidence: "We collect neural data ONLY with your explicit opt-in consent, obtained separately before any recording begins." },
+                    { id: "CA-02", ctrl: "Zero neural data sales — ever", evidence: "We never sell your neural data under any circumstances." },
+                    { id: "EU-02", ctrl: "AES-256 encryption at rest + TLS 1.3 in transit", evidence: "All neural data is encrypted using AES-256 at rest and TLS 1.3 in transit." },
+                    { id: "CA-01", ctrl: "Right to delete — processed within 30 days", evidence: "You may request complete deletion of your neural data at any time, processed within 30 days." },
+                    { id: "GEN-02", ctrl: "72-hour breach notification commitment", evidence: "We will notify you within 72 hours in the event of a breach affecting your neural data." },
+                  ].map(v => (
+                    <div key={v.id} className="border border-emerald-500/15 rounded-lg bg-emerald-500/5 p-3">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="text-[9px] font-mono text-emerald-400/60 font-black">{v.id}</span>
+                        <span className="text-[9px] font-black px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400">COMPLIANT</span>
+                        <span className="text-[10px] font-bold text-slate-300">{v.ctrl}</span>
+                      </div>
+                      <div className="text-[10px] text-slate-500 italic">Evidence: "{v.evidence}"</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Key finding */}
+            <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-5">
+              <div className="text-xs font-black text-amber-400 uppercase tracking-wider mb-3">Key Security Finding</div>
+              <div className="grid grid-cols-3 gap-5 text-xs text-slate-400 leading-relaxed">
+                <div>
+                  <div className="font-black text-white mb-1">The Attack Surface</div>
+                  Vendors like NeuroCorp collect neural data without consent and share it with third parties. An attacker doesn't need to intercept your EEG signal — they can simply buy it from the vendor's advertising partners.
+                </div>
+                <div>
+                  <div className="font-black text-white mb-1">Why It's a Security Issue</div>
+                  Neural data reveals mental health conditions, emotional states, cognitive patterns, and identity — even when "anonymized." Unrestricted third-party sharing creates a data supply chain attack vector for brain data.
+                </div>
+                <div>
+                  <div className="font-black text-white mb-1">What CyberNeuro Does</div>
+                  The compliance agent autonomously audits vendor policies using Claude AI, identifies security vulnerabilities in data handling practices, and generates actionable findings — continuously, without human review.
+                </div>
+              </div>
+            </div>
+
+            {/* Laws as security standards */}
+            <div className="rounded-xl border border-slate-800/60 bg-slate-900/60 p-5">
+              <div className="text-xs font-black text-slate-300 uppercase tracking-wider mb-4">Security Standards Checked</div>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { id: "CO-01/02", law: "Colorado HB 24-1058", security: "Opt-in consent + sensitive data classification" },
+                  { id: "CA-01/02", law: "California SB 1223",  security: "Right to delete + prohibition on data sales" },
+                  { id: "MN-01",    law: "Minnesota HF 1",      security: "Data minimization — collect only what's needed" },
+                  { id: "EU-01/02", law: "EU AI Act Article 5", security: "No subliminal manipulation + encryption required" },
+                  { id: "GEN-1-3",  law: "Neurorights Foundation", security: "Third-party limits + breach notification + retention caps" },
+                ].map(l => (
+                  <div key={l.id} className="flex gap-3 py-2 border-b border-slate-800/40">
+                    <span className="text-[9px] font-mono text-cyan-400/50 w-14 flex-shrink-0 mt-0.5 font-black">{l.id}</span>
+                    <div>
+                      <div className="text-xs font-black text-slate-200 mb-0.5">{l.law}</div>
+                      <div className="text-[10px] text-slate-500">{l.security}</div>
+                    </div>
                   </div>
                 ))}
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-5">
-              <div className="rounded-xl border border-slate-800/60 bg-slate-900/60 p-5">
-                <div className="text-xs font-black text-slate-300 uppercase tracking-wider mb-4">Legal Frameworks</div>
-                <div className="divide-y divide-slate-800/50">
-                  {[["CO-01/02","Colorado HB 24-1058 (2024)","Opt-in consent · sensitive data classification"],
-                    ["CA-01/02","California SB 1223 (2024)","Right to delete · no neural data sales"],
-                    ["MN-01","Minnesota HF 1","Data minimization for neural signals"],
-                    ["EU-01/02","EU AI Act Article 5","No subliminal manipulation · encryption"],
-                    ["GEN-1-3","Neurorights Foundation","Third-party limits · breach notification"]].map(([id,law,note]) => (
-                    <div key={id as string} className="flex gap-3 py-2.5">
-                      <span className="text-[9px] font-mono text-cyan-400/50 w-14 flex-shrink-0 mt-0.5 font-black">{id}</span>
-                      <div><div className="text-xs font-black text-slate-200 mb-0.5">{law}</div><div className="text-[10px] text-slate-500">{note}</div></div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="rounded-xl border border-slate-800/60 bg-slate-900/60 p-5">
-                <div className="text-xs font-black text-slate-300 uppercase tracking-wider mb-4">Common Violations Found</div>
-                <div className="space-y-2.5">
-                  {[["CRITICAL","No opt-in consent before neural data collection"],
-                    ["CRITICAL","Selling anonymized neural datasets to advertising partners"],
-                    ["HIGH","No explicit right to delete neural data"],
-                    ["HIGH","No breach notification timeline specified"],
-                    ["HIGH","Unrestricted data sharing with research affiliates"],
-                    ["MEDIUM","Indefinite retention of raw neural signals"]].map(([sev,text],i) => (
-                    <div key={i} className="flex items-start gap-2.5">
-                      <RiskBadge risk={sev as string} />
-                      <span className="text-xs text-slate-400 leading-relaxed">{text}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
