@@ -112,7 +112,7 @@ This work is grounded in the emerging BCI security literature:
 
 **Research contribution:** Unified agentic platform combining real-time signal defense, automated legal compliance auditing, and empirical de-anonymization risk scoring for BCIs.
 
-## Future Steps
+## Future Steps [Potential]
 
 **Real hardware integration**  
 Connect directly to live BCI devices via their Bluetooth APIs, replacing the 
