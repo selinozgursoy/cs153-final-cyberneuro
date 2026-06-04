@@ -146,7 +146,7 @@ implanted arrays like Neuralink — as invasive BCIs become more widespread.
 
 ---
 ## Use of AI
-Claude AI
+Claude AI \
 OpenRouter API credit
 
 *Built at Stanford with MNE-Python, PyTorch, and the Anthropic/OpenRouter Claude API.*
